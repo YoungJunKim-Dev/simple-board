@@ -3,6 +3,9 @@
 #database
 /database.json
 
+#authentication
+/src/cryptography
+
 # dependencies
 /node_modules
 /.pnp

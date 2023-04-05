@@ -11,6 +11,9 @@
 # production
 /build
 
+#temp components
+/Temp
+
 # misc
 .DS_Store
 .env.local
