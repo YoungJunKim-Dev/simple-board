@@ -10,13 +10,10 @@ const {
 
 router.use(passport.authenticate("jwt", { session: false }));
 
-router
-  .route("/admin")
-  .get(getAllMembers)
-  .post()
-  .put(updateMember)
-  .delete(deleteMember);
+router.route("/admin").get(getAllMembers).post().put(updateMember);
 
-router.route("/mypage").get(getMember);
+router.route("/admin/:id(\\d+)/").delete(deleteMember);
+
+router.route("/:id(\\d+)/").get(getMember);
 
 module.exports = router;

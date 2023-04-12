@@ -20,7 +20,7 @@ const Header = () => {
         <div className="mx-4 border-b border-slate-900/10 py-4 dark:border-slate-300/10 lg:mx-0 lg:border-0 lg:px-8">
           <div className="relative flex items-center">
             <div className="mr-6 flex flex-shrink-0 items-center text-slate-900 dark:text-white">
-              <Link to={"/temp"}>
+              <Link to={"/"}>
                 <div className="dark:hidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -183,10 +183,11 @@ const Header = () => {
               <div className="ml-6 flex items-center border-l border-slate-200 pl-6 dark:border-slate-800">
                 <label className="sr-only">Theme</label>
                 <ThemeDropdown />
+                <div className="mr-2" />
                 {Auth.isLoggedIn() ? (
                   <UserDropdown />
                 ) : (
-                  <div className="space-x-2">
+                  <div className="space-x-3">
                     <button
                       onClick={handleSignIn}
                       className="rounded-lg border-2 border-solid border-sky-500 bg-white px-4 py-2 text-sm font-semibold leading-5  text-gray-900 hover:bg-sky-50 dark:bg-slate-800 dark:text-gray-200 dark:hover:bg-slate-700"

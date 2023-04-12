@@ -68,7 +68,6 @@ const SignUp = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setvalues({ ...values, [name]: value });
-    console.log(value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,10 +78,9 @@ const SignUp = () => {
       .post(url, values)
       .then((res) => {
         console.log(res);
-        //Auth.setLocalStorage(res);
         navigate("/signin");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert("Something is wrong"));
   };
   const fillEverything = () => {
     setvalues({
@@ -104,12 +102,12 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-xs">
-        <div class="w-full max-w-xs">
+        <div className="w-full max-w-xs">
           <form
             onSubmit={handleSubmit}
-            className="mb-4 rounded bg-white px-8 pt-6 pb-8 shadow dark:bg-slate-700 dark:shadow-slate-500"
+            className="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow dark:bg-slate-700 dark:shadow-slate-500"
           >
             <div className="flex justify-center pb-4">
               <span className="text-lg font-semibold leading-6 text-slate-700 dark:text-slate-200">
@@ -126,43 +124,19 @@ const SignUp = () => {
                 />
               );
             })}
-            <div className="py-1">
-              <span className="block text-sm font-medium text-slate-700 dark:text-white">
-                {"국적"}
-              </span>
-              <div className="relative inline-block w-64">
-                <select className="form-input focus:shadow-outline required peer w-full appearance-none rounded border bg-white py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none dark:border-gray-600 dark:bg-slate-600 dark:text-white dark:placeholder:text-slate-300 ">
-                  <option>국적을 선택하세요</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-slate-200">
-                  <svg
-                    className="h-4 w-4 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </div>
-              </div>
-              <span className="mt-2 hidden text-sm text-pink-600 peer-invalid:block">
-                {"국적을 선택하세요"}
-              </span>
-            </div>
-            <button className="focus:shadow-outline rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700 focus:outline-none">
+            <button className="focus:shadow-outline mt-2 w-full rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none">
               Submit
             </button>
           </form>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center space-x-4">
             <button
-              className="focus:shadow-outline rounded bg-yellow-500 py-2 px-4 font-bold text-white hover:bg-yellow-700 focus:outline-none"
+              className="focus:shadow-outline rounded bg-yellow-500 px-4 py-2 font-bold text-white hover:bg-yellow-700 focus:outline-none"
               onClick={fillEverything}
             >
-              Fill Input
+              Fill User1
             </button>
             <button
-              className="focus:shadow-outline rounded bg-pink-500 py-2 px-4 font-bold text-white hover:bg-pink-700 focus:outline-none"
+              className="focus:shadow-outline hover:bg-black-600 rounded bg-rose-400 px-4 py-2 font-bold text-white focus:outline-none"
               onClick={makeEmpty}
             >
               Make Empty

@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import FormInput from "../components/FormInput";
 import LoginState from "../states/LoginState";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ContentInput from "../components/ContentInput";
 import axios from "axios";
 
-const Write = () => {
+const EditPost = () => {
+  let { id } = useParams();
   const navigate = useNavigate();
   const loginState = useRecoilValue(LoginState);
-  const url = "/api/posts";
+  const putUrl = "/api/posts";
+  const getUrl = `/api/posts/editpost/${id}`;
   const headers = { Authorization: localStorage.getItem("token") };
   const [content, setContent] = useState({ title: "", content: "" });
+
+  useEffect(() => {
+    callGetApi();
+  }, []);
 
   const inputs = [
     {
@@ -37,14 +43,15 @@ const Write = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    callApi();
+    callPutApi();
   };
   const handleCancel = () => {
     navigate(-1);
   };
-  const callApi = () => {
+  const callPutApi = () => {
+    console.log(content);
     axios
-      .post(url, content, { headers: headers })
+      .put(putUrl, content, { headers: headers })
       .then((res) => {
         console.log("posting succeedd");
         navigate("/board");
@@ -52,6 +59,14 @@ const Write = () => {
       .catch((err) => {
         console.log("posintg failed");
       });
+  };
+  const callGetApi = () => {
+    axios
+      .get(getUrl, { headers: headers })
+      .then((res) => {
+        setContent({ post_id: id, ...res.data });
+      })
+      .catch(() => navigate(-1));
   };
 
   return (
@@ -63,7 +78,7 @@ const Write = () => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="mb-4 mt-4 rounded-xl bg-slate-50 px-8 pt-6 pb-8 shadow-md dark:bg-slate-800/25"
+        className="mb-4 mt-4 rounded-xl bg-slate-50 px-8 pb-8 pt-6 shadow-md dark:bg-slate-800/25"
       >
         <div className="py-1">
           <span className="block text-sm font-medium text-slate-700 dark:text-white">
@@ -80,25 +95,23 @@ const Write = () => {
           value={content.content}
           onChange={handleChange}
         />
+        <div className="mt-2 flex justify-end space-x-2">
+          <button
+            onClick={handleCancel}
+            className="rounded-xl bg-sky-500 px-5 py-2 text-sm font-semibold leading-5 text-white hover:bg-sky-700"
+          >
+            취소
+          </button>
+          <button
+            type="submit"
+            className="rounded-xl bg-sky-500 px-5 py-2 text-sm font-semibold leading-5 text-white hover:bg-sky-700"
+          >
+            작성
+          </button>
+        </div>
       </form>
-
-      <div className="flex justify-end space-x-2">
-        <button
-          onClick={handleCancel}
-          className="rounded-xl bg-sky-500 px-5 py-2 text-sm font-semibold leading-5 text-white hover:bg-sky-700"
-        >
-          취소
-        </button>
-        <button
-          type="submit"
-          onClick={handleSubmit}
-          className="rounded-xl bg-sky-500 px-5 py-2 text-sm font-semibold leading-5 text-white hover:bg-sky-700"
-        >
-          작성
-        </button>
-      </div>
     </div>
   );
 };
 
-export default Write;
+export default EditPost;

@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import Auth from "../services/auth";
+import Auth from "../../services/auth";
 
 const PublicRestrictedRoute = ({ children }) => {
   if (Auth.isLoggedIn()) {

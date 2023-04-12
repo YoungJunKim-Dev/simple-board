@@ -71,7 +71,7 @@ const UserDropdown = () => {
             <Menu.Item>
               <button
                 className="group flex w-full items-center rounded-md px-2 py-2 text-sm font-semibold text-gray-900 dark:text-gray-200"
-                disabled="true"
+                disabled={true}
               >
                 {`@${loginState.username}`}
               </button>

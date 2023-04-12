@@ -1,7 +1,5 @@
 const express = require("express");
-const cookieParser = require("cookie-parser");
 const passport = require("passport");
-//require("./config/passport")(passport);
 const strategy = require("./config/passport");
 passport.use(strategy);
 
@@ -16,7 +14,6 @@ const port = process.env.PORT || 5000;
 app.use(passport.initialize());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 // routes
 app.use("/api/members", membersRouter);

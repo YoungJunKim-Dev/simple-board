@@ -1,11 +1,14 @@
 import moment from "moment";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import "./post.css";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 const Post = (props) => {
   const { post_id, title, image, username, created_date, views } = props;
   const navigate = useNavigate();
+  const [cookies, setCookies] = useCookies(["visited"]);
+  const updateViewsUrl = `/api/posts/views/${post_id}`;
   const now = moment();
   const createdMoment = moment(created_date);
   let created_at = "";
@@ -16,20 +19,43 @@ const Post = (props) => {
   } else {
     created_at = createdMoment.format("MM-DD");
   }
-  console.log(created_at);
 
   const handleNavigateToPost = () => {
+    const expires = moment().endOf("day");
+    if (!cookies.visited) {
+      const newCookie = { [post_id]: true };
+      setCookies("visited", newCookie, {
+        path: "/board",
+        expires: expires.toDate(),
+      });
+      axios
+        .put(updateViewsUrl)
+        .then((res) => console.log(res))
+        .catch((err) => alret(err));
+    } else {
+      if (!cookies.visited[post_id]) {
+        const newCookie = { ...cookies.visited, [post_id]: true };
+        setCookies("visited", newCookie, {
+          path: "/board",
+          expires: expires.toDate(),
+        });
+        axios
+          .put(updateViewsUrl)
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
+      }
+    }
     navigate(`/board/${post_id}`);
   };
 
   return (
     <tr className="hover:bg-slate-50 dark:hover:bg-slate-700">
-      <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-4 pl-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
         {post_id}
       </td>
       <td
         onClick={handleNavigateToPost}
-        className="border-b border-slate-100 p-4 text-slate-500 hover:cursor-pointer hover:font-semibold hover:underline dark:border-slate-700 dark:text-slate-400"
+        className="border-b border-slate-100 p-4 text-left text-slate-500 hover:cursor-pointer hover:font-semibold hover:underline dark:border-slate-700 dark:text-slate-400"
       >
         {title}
       </td>
@@ -46,10 +72,10 @@ const Post = (props) => {
           </div>
         </div>
       </td>
-      <td className="border-b border-slate-100 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-4 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
         {created_at}
       </td>
-      <td className="border-b border-slate-100 p-4 pr-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-4 pr-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
         {views}
       </td>
     </tr>

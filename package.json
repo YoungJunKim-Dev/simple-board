@@ -7,9 +7,7 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "devDependencies": {
-    "concurrently": "^4.1.2",
-    "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.4"
+    "concurrently": "^4.1.2"
   },
   "description": "Simple Board",
   "author": "YJK",

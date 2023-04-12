@@ -146,20 +146,14 @@ const Footer = () => {
         </p>
         <div className="mt-6 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-500 ">
           <a
-            href="/privacy-policy"
+            href="mailto:youngjunkim.dev@gmail.com"
             className="hover:text-slate-900 dark:hover:text-slate-400"
           >
-            Privacy policy
+            Contact Me
           </a>
           <div className="h-4 w-px bg-slate-500/20"></div>
-          <a
-            href="/changelog"
-            className="hover:text-slate-900 dark:hover:text-slate-400"
-          >
-            Changelog
-          </a>
-          <Link to="/signin">
-            <button className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300">
+          <Link to="https://github.com/YoungJunKim-Dev/simple-board">
+            <button className="ml-3 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300">
               <span className="sr-only">Signed In Profile</span>
               <svg
                 viewBox="0 0 16 16"

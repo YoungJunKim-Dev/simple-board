@@ -29,36 +29,44 @@ const updateMember = (req, res) => {
 };
 
 const deleteMember = (req, res) => {
-  const member_id = req.query.member_id;
-  // const sql = "";
-  console.log(member_id);
+  const currentUser = req.user.member_id;
+  const member_id = req.params.id;
+
   const sql = `DELETE FROM Members WHERE member_id = ${member_id}`;
   connection.execute(sql, (err, rows, fields) => {
-    if (err) {
-      console.log(err);
+    if (isAdmin(currentUser)) {
+      if (err) {
+        res
+          .status(418)
+          .send("If user has posts, delete all posts user wrote and retry!");
+      } else {
+        res.status(200).send("succedd");
+      }
     } else {
-      console.log(rows);
+      res.status(401).send("Unathorized");
     }
   });
-  res.send("Succedd");
 };
 const getMember = (req, res) => {
-  //const { member_id } = req.user;
-  //const sql = `SELECT * FROM Members WHERE member_id="${member_id}"`;
+  const { member_id } = req.user;
+  const targetId = req.params.id;
+  const sql = `SELECT username, email, birthday, nationality FROM Members WHERE member_id="${targetId}"`;
 
-  // connection.execute(sql, (err, rows, fields) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     res.send(rows[0]);
-  //   }
-  // });
-  res.send(req.user);
+  if (isAdmin(member_id) || String(member_id) === targetId) {
+    connection.execute(sql, (err, rows, fields) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(rows[0]);
+      }
+    });
+  } else {
+    res.status(418).send("Something is wrong");
+  }
 };
 
 module.exports = {
   getAllMembers,
-  // createMember,
   updateMember,
   deleteMember,
   getMember,

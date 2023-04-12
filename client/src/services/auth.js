@@ -7,8 +7,6 @@ const setLocalStorage = (responseObj) => {
 
     const expires = moment().add(num, unit);
 
-    console.log(expires.format("LLLL"));
-
     localStorage.setItem("token", responseObj.data.token);
     localStorage.setItem("expires", JSON.stringify(expires.valueOf()));
     const member_id = responseObj.data.member_id;

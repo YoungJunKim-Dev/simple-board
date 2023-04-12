@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Card from "../components/Card";
 import axios from "axios";
 import MyPost from "../components/MyPost";
 import { useRecoilValue } from "recoil";
 import LoginState from "../states/LoginState";
 
-const MyPage = () => {
+const UserPage = () => {
+  let { id } = useParams();
   const navigate = useNavigate();
   const loginState = useRecoilValue(LoginState);
 
@@ -28,25 +29,23 @@ const MyPage = () => {
   const headers = { Authorization: localStorage.getItem("token") };
   const callInfoApi = () => {
     axios
-      .get(`${myInfoUrl}/${loginState.member_id}`, { headers: headers })
+      .get(`${myInfoUrl}/${id}`, { headers: headers })
       .then((res) => {
         setValues(res.data);
       })
       .catch((err) => navigate("/"));
   };
   const callPostsApi = () => {
-    axios
-      .get(`${myPostsUrl}/${loginState.member_id}`, { headers: headers })
-      .then((res) => {
-        setPosts(res.data);
-      });
+    axios.get(`${myPostsUrl}/${id}`, { headers: headers }).then((res) => {
+      setPosts(res.data);
+    });
   };
 
   return (
     <div className="mt-8 flex flex-col px-4">
       <div className="ml-2">
         <span className="text-xl font-semibold leading-6 text-slate-700 dark:text-slate-200">
-          마이페이지
+          유저페이지
         </span>
       </div>
       <Card>
@@ -55,7 +54,7 @@ const MyPage = () => {
             개인정보
           </span>
         </div>
-        <div className="my-4 w-full max-w-xs rounded-xl border-b bg-slate-100 px-4 py-4 dark:border-slate-600 dark:bg-slate-800">
+        <div className="my-4 w-full max-w-xs bg-slate-100 px-4 py-4 dark:bg-slate-800">
           <label>
             <span className="mb-2 block text-sm font-bold text-gray-700 dark:text-slate-200">
               이름
@@ -86,7 +85,7 @@ const MyPage = () => {
         </div>
         <div className="ml-2">
           <span className="text font-semibold leading-6 text-slate-700 dark:text-slate-200">
-            내가 쓴 글
+            유저가 쓴 글
           </span>
           <div className="mb-4 mt-8 shadow-sm">
             <table className="w-full table-auto border-collapse text-sm">
@@ -105,9 +104,6 @@ const MyPage = () => {
                     조회
                   </th>
                   <th className="w-1/12 border-b  p-4 pb-3 pr-8 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
-                    수정
-                  </th>
-                  <th className="w-1/12 border-b  p-4 pb-3 pr-8 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
                     삭제
                   </th>
                 </tr>
@@ -119,7 +115,7 @@ const MyPage = () => {
                       {...post}
                       key={post.post_id}
                       setRefresh={callPostsApi}
-                      user={false}
+                      user={true}
                     />
                   );
                 })}
@@ -132,4 +128,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default UserPage;

@@ -6,7 +6,6 @@ const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
   const handleBlur = () => {
     setFocused(true);
-    console.log("blurred");
   };
 
   return (
@@ -15,11 +14,10 @@ const FormInput = (props) => {
         {label}
       </span>
       <input
-        className="form-input focus:shadow-outline peer w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none dark:border-gray-600 dark:bg-slate-600 dark:text-white dark:placeholder:text-slate-300 dark:hover:bg-slate-500"
+        className="focus:shadow-outline peer w-full appearance-none rounded border bg-white px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none dark:border-gray-600 dark:bg-slate-600 dark:text-white dark:placeholder:text-slate-300 dark:hover:bg-slate-500"
         {...inputProps}
         onBlur={handleBlur}
         onFocus={() => {
-          console.log("focused");
           setFocused("true");
           inputProps.name === "confirmPassword" && setFocused(true);
         }}

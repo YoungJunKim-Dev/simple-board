@@ -14,8 +14,6 @@ const options = {
 };
 
 const strategy = new JwtStrategy(options, (payload, done) => {
-  console.log("this is called, passport authenticate");
-
   const sql = `SELECT * FROM Members WHERE member_id = "${payload.sub}"`;
   //jwt token의 payload에 들어있는 member_id를 통해 존재하는지 check
   connection.execute(sql, (err, rows, fields) => {
@@ -24,7 +22,7 @@ const strategy = new JwtStrategy(options, (payload, done) => {
       return done(err, null);
     } else {
       if (rows[0] !== undefined) {
-        console.log("Authorization succeded!");
+        //console.log("Authorization succeded!");
 
         return done(null, rows[0]);
       } else {

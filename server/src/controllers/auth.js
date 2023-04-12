@@ -1,7 +1,6 @@
 const connection = require("../db/connect");
 const md5 = require("md5");
 const passport = require("passport");
-const { Strategy: LocalStrategy } = require("passport-local");
 const utils = require("../utils/passport");
 
 //gravata - identicon 생성 (md5이용 hash)
@@ -27,10 +26,8 @@ const postSignUp = async (req, res) => {
   connection.execute(sql, (err, rows, fields) => {
     if (err) {
       console.log(err);
+      res.status(418).send(err);
     } else {
-      console.log(rows);
-      console.log(fields);
-      //signup도 토큰 발행? 해야하나?
       res.send("SignUp succeded");
     }
   });
@@ -51,7 +48,6 @@ const postSignIn = (req, res) => {
 
         if (isValid) {
           const jwt = utils.issueJWT(user.member_id);
-          console.log("password is right");
           res.status(200).json({
             success: true,
             token: jwt.token,
@@ -73,19 +69,6 @@ const postSignIn = (req, res) => {
       }
     }
   });
-
-  //위 과정을 passport로?
-  //passport authenticate 호출
-  //  passport.authenticate("jwt", {
-  //   successRedirect: "/",
-  //   failureRedirect: "/signin",
-  // });
-
-  // //token 생성
-  // const token = "";
-  // //token 발급
-  // res.setHeader("Authorization", "JWT JSON_WEB_TOKEN_STRING.....");
-  // res.send();
 };
 
 module.exports = { postSignIn, postSignUp };
