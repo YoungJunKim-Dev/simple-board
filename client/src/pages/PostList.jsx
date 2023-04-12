@@ -39,7 +39,7 @@ const PostList = () => {
       </div>
       <div className="mb-4 mt-4 shadow-sm">
         <div className="mb-4 flex justify-end">
-          <label>
+          <label className="text-sm">
             페이지 당 게시물 수 : &nbsp;
             <select
               type="number"
@@ -59,19 +59,19 @@ const PostList = () => {
         <table className="w-full table-auto border-collapse text-sm">
           <thead>
             <tr>
-              <th className="w-1/12 border-b p-4 pb-3 pl-8 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:pl-4">
                 번호
               </th>
-              <th className="w-1/2 border-b p-4 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:w-1/2">
                 제목
               </th>
-              <th className="border-b p-4 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:text-left">
                 작성자
               </th>
-              <th className="border-b p-4 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
                 작성일
               </th>
-              <th className="w-1/12 border-b  p-4 pb-3 pr-8 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:pr-4">
                 조회
               </th>
             </tr>

@@ -50,32 +50,36 @@ const Post = (props) => {
 
   return (
     <tr className="hover:bg-slate-50 dark:hover:bg-slate-700">
-      <td className="border-b border-slate-100 p-4 pl-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400 sm:pl-4">
         {post_id}
       </td>
       <td
         onClick={handleNavigateToPost}
-        className="border-b border-slate-100 p-4 text-left text-slate-500 hover:cursor-pointer hover:font-semibold hover:underline dark:border-slate-700 dark:text-slate-400"
+        className="border-b border-slate-100 p-2 text-left text-slate-500 hover:cursor-pointer hover:underline dark:border-slate-700 dark:text-slate-400 sm:hover:font-semibold"
       >
         {title}
       </td>
-      <td className="border-b border-slate-100 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400">
         <div className="flex items-center">
           <div className="h-6 w-6 flex-shrink-0">
-            <img className="h-6 w-6 rounded-full" src={image} alt="profile" />
+            <img
+              className="hidden h-6 w-6 rounded-full sm:block"
+              src={image}
+              alt="profile"
+            />
           </div>
 
-          <div className="ml-4">
+          <div className="sm:ml-4">
             <div className="text-sm font-medium leading-5 text-gray-900 dark:text-white">
               {username}
             </div>
           </div>
         </div>
       </td>
-      <td className="border-b border-slate-100 p-4 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
         {created_at}
       </td>
-      <td className="border-b border-slate-100 p-4 pr-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400 sm:pr-4">
         {views}
       </td>
     </tr>

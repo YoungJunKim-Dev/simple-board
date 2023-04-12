@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import moment from "moment";
 
 function Member(props) {
   const {
@@ -12,6 +13,7 @@ function Member(props) {
     email,
     setRefresh,
   } = props;
+  const birthdayMoment = moment(birthday).format("YY-MM-DD");
   const navigate = useNavigate();
   const headers = { Authorization: localStorage.getItem("token") };
   const url = `/api/members/admin`;
@@ -31,15 +33,21 @@ function Member(props) {
 
   return (
     <tr className="hover:bg-slate-50 dark:hover:bg-slate-700">
-      <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
-        <div className="text-sm leading-5 text-gray-500">{member_id} </div>
+      <td className="border-b border-slate-100 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400 sm:pl-4">
+        <div className="text-center text-sm leading-5 text-gray-500">
+          {member_id}{" "}
+        </div>
       </td>
-      <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="flex justify-center border-b border-slate-100 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400 sm:pl-8">
         <div className="flex items-center">
-          <div className="h-10 w-10 flex-shrink-0">
-            <img className="h-10 w-10 rounded-full" src={image} alt="profile" />
+          <div className="hidden flex-shrink-0 sm:block sm:h-10 sm:w-10">
+            <img
+              className="rounded-full sm:h-10 sm:w-10"
+              src={image}
+              alt="profile"
+            />
           </div>
-          <div className="ml-4">
+          <div className="sm:ml-4">
             <div
               onClick={handleNavigateToUserPage}
               className="text-sm font-medium leading-5 text-gray-900 hover:cursor-pointer hover:font-semibold hover:underline dark:text-slate-200"
@@ -50,17 +58,17 @@ function Member(props) {
         </div>
       </td>
 
-      <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400">
         <div className="text-sm leading-5 text-gray-500">{email}</div>
       </td>
 
-      <td className="border-b border-slate-100 p-4 pl-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
-        <div className="text-sm leading-5 text-gray-500">{birthday}</div>
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
+        <div className="text-sm leading-5 text-gray-500">{birthdayMoment}</div>
       </td>
-      <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
         <div className="text-sm leading-5 text-gray-500">{nationality}</div>
       </td>
-      <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="flex justify-center border-b border-slate-100 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400 sm:pr-4">
         <svg
           onClick={handleDelete}
           xmlns="http://www.w3.org/2000/svg"

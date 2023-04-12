@@ -49,22 +49,22 @@ const Management = () => {
         <table className="w-full table-auto border-collapse text-sm">
           <thead>
             <tr>
-              <th className="w-1/12 border-b p-4 pb-3 pl-8 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-left text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:pl-4">
                 ID
               </th>
-              <th className="border-b p-4 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
                 Name
               </th>
-              <th className="border-b p-4 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
                 Email
               </th>
-              <th className="border-b p-4 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
                 Birthday
               </th>
-              <th className="border-b p-4 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
                 Nationality
               </th>
-              <th className="border-b p-4 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="sm:pr- border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:pr-4">
                 Delete
               </th>
             </tr>

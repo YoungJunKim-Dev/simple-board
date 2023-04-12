@@ -33,27 +33,29 @@ const MyPost = (props) => {
 
   return (
     <tr className="hover:bg-slate-50 dark:hover:bg-slate-700">
-      <td className="border-b border-slate-100 p-4 pl-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400 sm:pl-4">
         <div className="text-sm leading-5 text-gray-500">{post_id} </div>
       </td>
-      <td className="border-b border-slate-100 p-4 pl-8 text-left text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-left text-slate-500 dark:border-slate-700 dark:text-slate-400">
         <div className="text-sm leading-5 text-gray-500">{title} </div>
       </td>
 
-      <td className="border-b border-slate-100 p-4 pl-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
         <div className="text-sm leading-5 text-gray-500">{created_at}</div>
       </td>
 
-      <td className="border-b border-slate-100 p-4 pl-8 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
+      <td className="border-b border-slate-100 p-2 text-center text-slate-500 dark:border-slate-700 dark:text-slate-400">
         <div className="text-sm leading-5 text-gray-500">{views}</div>
       </td>
       {user ? (
         ""
       ) : (
-        <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
-          <button>
+        <td className="border-b border-slate-100 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+          <div
+            onClick={handleEdit}
+            className="flex cursor-pointer justify-center"
+          >
             <svg
-              onClick={handleEdit}
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 text-blue-400"
               fill="none"
@@ -67,10 +69,11 @@ const MyPost = (props) => {
                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
               />
             </svg>
-          </button>
+          </div>
         </td>
       )}
-      <td className="border-b border-slate-100 p-4 pl-8 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+
+      <td className="flex justify-center border-b border-slate-100 p-2 text-slate-500 dark:border-slate-700 dark:text-slate-400 sm:pr-4">
         <svg
           onClick={handleDelete}
           xmlns="http://www.w3.org/2000/svg"
