@@ -58,13 +58,13 @@ const Management = () => {
               <th className="border-b p-2 pb-3 pt-0 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
                 Email
               </th>
-              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="hidden border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:table-cell">
                 Birthday
               </th>
-              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200">
+              <th className="hidden border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:table-cell">
                 Nationality
               </th>
-              <th className="sm:pr- border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:pr-4">
+              <th className="border-b p-2 pb-3 pt-0 text-center font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200 sm:pr-4">
                 Delete
               </th>
             </tr>
