@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# YJK Forum, 간단한 게시판 프로젝트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [🚀YJK Forum 방문하기](http://youngjunkim.me)
+<br>
 
-## Available Scripts
+# 📖 목차 
+ - [개요](#개요) 
+ - [개발 환경](#개발-환경)
+ - [사용 기술](#사용-기술)
+ - [E-R 다이어그램](#e-r-다이어그램)
+ - [Api 명세서](#-api-명세서)
+ - [프로젝트 목적](#프로젝트-목적)
+ - [화면 구성](#화면-구성)
+ -  [핵심 기능](#핵심-기능)
+    - [로그인](#로그인)
+    - [게시글 CRUD](#게시글-crud)
 
-In the project directory, you can run:
+## 📃개요
+**YJK Forum**은 프론트엔드, 백엔드 경험을 위해 개인적으로 제작한 간단한 게시판 웹 애플리케이션입니다.<br> 
 
-### `npm start`
+## 개발 환경
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![windows11](https://img.shields.io/badge/Windows11-black?style=flat&logo=windows11)&nbsp;![VisualStudioCode](https://img.shields.io/badge/VSCode-blue?style=flat&logo=VisualStudioCode)&nbsp;![github](https://img.shields.io/badge/github-606060?style=fat&logo=github)&nbsp;
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ - Windows11
+ - Visual Studio Code
+ - GitHub
 
-### `npm test`
+## 사용 기술 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![node.js](https://img.shields.io/badge/Node.js-18.14-339933?style=flat&logo=node.js)&nbsp;![express](https://img.shields.io/badge/express-grey?style=flat&logo=express)
 
-### `npm run build`
+![react](https://img.shields.io/badge/React-18.2-blue?style=flat&logo=react)&nbsp; ![tailwindcss](https://img.shields.io/badge/TailwindCSS-grey?style=flat&logo=tailwindcss)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![mysql](https://img.shields.io/badge/MySQL-grey?style=flat&logo=mysql)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![ec2](https://img.shields.io/badge/AWS-ec2-FF8C00?style=flat&logo=amazonec2)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**백엔드**
+  - Node.js
+  - Express
 
-### `npm run eject`
+**프론트엔드**
+  - React
+  - TailwindCSS
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**데이터베이스**
+  - Mysql
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**인프라** 
+  - AWS EC2
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## E-R 다이어그램
+<img src="https://user-images.githubusercontent.com/114643395/232716479-9761efc7-88a9-498f-b34a-398600be9414.png" width="550" height="384"/>
 
-## Learn More
+## 📑 Api 명세서
+### temp
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 프로젝트 목적
+temp
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## 화면 구성💻
+|![첫페이지](https://user-images.githubusercontent.com/114643395/232729115-b68f19a7-7caa-4217-ab1f-4463c0b0095e.png)|![글쓰기](https://user-images.githubusercontent.com/114643395/232731380-fa67bd15-f490-4e4f-b7c9-0e3a9707c165.png)| ![로그인](https://user-images.githubusercontent.com/114643395/232729469-4b5cb023-90bd-4dc8-bea8-57403e438c13.png) | ![회원가입](https://user-images.githubusercontent.com/114643395/232729704-e5db6e9b-1576-47e3-8050-ab13df12e0c9.png) |
+| :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
+|                                                      첫 페이지                                                      |                                                       글쓰기                                                        |                                                      로그인                                                       |                                                     회원가입                                                      |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| ![게시판](https://user-images.githubusercontent.com/114643395/232729890-52042463-c683-403d-93ec-032e416c09ef.png) | ![게시글 보기](https://user-images.githubusercontent.com/114643395/232730215-66be0361-0aef-4dc0-a8c0-0a4f3b2efeaa.png) | ![마이페이지](https://user-images.githubusercontent.com/114643395/232730621-0fefcb72-ac6d-478c-b1f6-fd62435f0877.png) | ![관리페이지](https://user-images.githubusercontent.com/114643395/232730978-2dbc15c3-e168-45ba-9041-884202ffcb4b.png) |
+| :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
+|                                                      게시판                                                      |                                                       게시글 보기                                                        |                                                      마이페이지                                                        |                                                     관리페이지                                                      |
 
-### Making a Progressive Web App
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 핵심 기능⭐
+### 🌠로그인
+temp
 
-### Advanced Configuration
+### 🌠게시글 CRUD
+temp
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 느낀점
+temp
