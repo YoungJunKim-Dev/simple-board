@@ -1,6 +1,6 @@
 # YJK Forum, 간단한 게시판 프로젝트
 
-## [🚀YJK Forum 방문하기](http://youngjunkim.me)
+## [🚀YJK Forum 방문하기](https://forum.youngjunkim.me)
 <br>
 
 # 📖 목차 
